@@ -9,6 +9,8 @@ module GoogleTree
   TOKEN_PATH = "token.yaml".freeze
   SCOPE = Google::Apis::DriveV3::AUTH_DRIVE_METADATA_READONLY
 
+  CACHE_FILE_PATH = "filescache"
+
   def self.authorize
     client_id = Google::Auth::ClientId.from_file(CREDENTIALS_PATH)
     token_store = Google::Auth::Stores::FileTokenStore.new(file: TOKEN_PATH)
@@ -39,8 +41,8 @@ module GoogleTree
     service.client_options.application_name = APPLICATION_NAME
     service.authorization = authorize
 
-    if cache && File.exist?("filescache")
-      @files = Marshal.load(File.read("filescache"))
+    if cache && File.exist?(CACHE_FILE_PATH)
+      @files = Marshal.load(File.read(CACHE_FILE_PATH))
     else
       @files = []
       next_page_token = nil
@@ -60,7 +62,7 @@ module GoogleTree
         break unless next_page_token
       end
 
-      File.write("files", Marshal.dump(@files)) if cache
+      File.write(CACHE_FILE_PATH, Marshal.dump(@files)) if cache
     end
 
     @files
