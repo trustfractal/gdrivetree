@@ -1,0 +1,85 @@
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# These were too much to fix / couldn't decide
+Metrics/LineLength:
+  Max: 130 # Default: 80
+
+Metrics/ParameterLists:
+  Max: 6 # Default: 5
+
+Metrics/ClassLength:
+  Max: 140 # Default: 100
+
+Metrics/MethodLength:
+  Max: 50 # Default: 10
+
+Metrics/AbcSize:
+  Max: 60 # Default: 15
+
+Metrics/CyclomaticComplexity:
+  Max: 20 # Default: 6
+
+Metrics/PerceivedComplexity:
+  Max: 25 # Default: 7
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# These I don't care
+Style/WhileUntilModifier:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/StructInheritance:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+
+Security/MarshalLoad:
+  Enabled: false
