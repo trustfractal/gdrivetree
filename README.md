@@ -8,7 +8,7 @@ Helps you visualize a Google Drive folder as a discount `tree` for quick overvie
 
 ## Configuration
 
-You'll need a `credentials.json` file. Get yours at [Google](https://developewhich will have this structure:rs.google.com/drive/api/v3/quickstart/ruby). It will have this structure:
+You'll need a `credentials.json` file. Get yours at [Google](https://developers.google.com/drive/api/v3/quickstart/ruby). It will have this structure:
 
 ```json
 {
