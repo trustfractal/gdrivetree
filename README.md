@@ -36,3 +36,7 @@ The `--url` flag will print file URLs next to the file names.
 ## Testing
 
 *ahem* `bundle exec rubocop`
+
+## Known Issues
+
+I've seen it list a folder that I removed hours prior. Haven't looked much into that.
