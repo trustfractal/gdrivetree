@@ -1,39 +1,24 @@
 module Tree
-  def self.human_type mime_type
-    if mime_type.match?(/google-apps/)
-      mime_type[%r{/.*\.(.*)$}, 1]
-    else
-      mime_type[%r{/.*\/(.*)$}, 1]
-    end
+  INDENT_WIDTH = 2
+
+  class TreeRequired < StandardError
   end
 
-  def self.print_tree node, urls, column = 0
-    node.each do |filename, metadata|
-      column.times { print "  " }
-      print "* #{filename}"
-      print " {https://drive.google.com/open?id=#{metadata[:id]}}" if urls
+  def self.display tree:, show_urls: false, level: 0
+    raise TreeRequired if tree.nil?
+
+    tree.each do |filename, metadata|
+      print "#{indent level}* #{filename}"
+      print " {https://drive.google.com/open?id=#{metadata[:id]}}" if show_urls
       print "\n"
-      metadata[:children]&.sort_by(&:keys)&.each { |child| print_tree child, urls, column + 1 }
+
+      metadata[:children]&.sort_by(&:keys)&.each do |child|
+        display tree: child, level: level + 1
+      end
     end
   end
 
-  def self.convert node
-    node.map do |file, children|
-      type = human_type file.mime_type
-
-      new_node = {}
-      new_node[file.name] = {
-        id: file.id,
-        type: type,
-        children: (children.flat_map { |child| convert child } if children.any?),
-      }
-
-      new_node
-    end.first
-  end
-
-  def self.printsss google_tree, urls
-    tree = convert google_tree
-    print_tree tree, urls
+  def self.indent level
+    " " * INDENT_WIDTH * level
   end
 end
