@@ -13,7 +13,7 @@ module Tree
       print "\n"
 
       metadata[:children]&.sort_by(&:keys)&.each do |child|
-        display tree: child, level: level + 1
+        display tree: child, show_urls: show_urls, level: level + 1
       end
     end
   end

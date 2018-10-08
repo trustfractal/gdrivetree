@@ -29,9 +29,12 @@ You'll need a `credentials.json` file. Get yours at [Google](https://developers.
 
 ## Usage
 
-`ruby main.rb <FOLDER_ID> [--url]`
-
-The `--url` flag will print file URLs next to the file names.
+```bash
+Usage: ruby main.rb [options]
+    -p, --provider PROVIDER          Select filesystem provider (default: GDrive)
+    -r, --root-id ROOT_ID            Select root ID (default: nil)
+    -u, --urls                       Show URLs next to files (default: false)
+```
 
 ## Testing
 
