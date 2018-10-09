@@ -1,12 +1,10 @@
-require "./providers/gdrive"
-require "./tree"
-require "./options"
+require "./lib/gdrive"
+require "./lib/tree"
+require "./lib/options"
 
 OPTIONS = Options.parse
 
-provider = Providers.const_get(OPTIONS[:provider].to_sym)
-
 Tree.display(
-  tree: provider.tree(root_id: OPTIONS[:root_id]),
-  show_urls: OPTIONS[:show_urls],
+  tree: GDrive.tree(root_id: OPTIONS.fetch(:root_id)),
+  show_urls: OPTIONS.fetch(:show_urls),
 )

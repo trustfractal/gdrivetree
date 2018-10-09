@@ -5,20 +5,11 @@ module Options
 
   def self.parse
     options = {
-      provider: "GDrive",
       show_urls: false,
     }
 
     OptionParser.new do |opts|
       opts.banner = "Usage: ruby main.rb [options]"
-
-      opts.on(
-        "-p",
-        "--provider PROVIDER",
-        "Select filesystem provider (default: GDrive)",
-      ) do |o|
-        options[:provider] = o
-      end
 
       opts.on(
         "-r",

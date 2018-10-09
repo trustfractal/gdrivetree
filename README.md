@@ -31,7 +31,6 @@ You'll need a `credentials.json` file. Get yours at [Google](https://developers.
 
 ```bash
 Usage: ruby main.rb [options]
-    -p, --provider PROVIDER          Select filesystem provider (default: GDrive)
     -r, --root-id ROOT_ID            Select root ID (default: nil)
     -u, --urls                       Show URLs next to files (default: false)
 ```
